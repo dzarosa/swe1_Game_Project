@@ -8,15 +8,21 @@ public class Game {
 	public enum gamesStatus{
 		Beginn, End
 	}
+	
+	public enum spiel{
+		move, your_turn
+	}
+	private spiel spiel;
 	private gamesStatus gameStatus;
 	private UUID gameId = UUID.randomUUID();
-	private GameService gameServiceId;
+	private UUID gameServiceId;
 	private Timestamp begin = new Timestamp(System.currentTimeMillis());
 	
-	public Game(UUID gameId, Timestamp begin, gamesStatus gameStatus){
+	public Game(UUID gameId, Timestamp begin, gamesStatus gameStatus,  UUID gameServiceId){
 		this.gameId = gameId;
 		this.begin = begin;
 		this.gameStatus = gameStatus;
+		this.setGameServiceId(new UUID(0, 0));
 		
 	}
 
@@ -33,7 +39,7 @@ public class Game {
 	}
 
 	public void setBegin(Timestamp begin) {
-		begin = begin;
+		this.begin = begin;
 	}
 
 	public gamesStatus getGameStatus() {
@@ -42,5 +48,21 @@ public class Game {
 
 	public void setGameStatus(gamesStatus gameStatus) {
 		this.gameStatus = gameStatus;
+	}
+
+	public UUID getGameServiceId() {
+		return gameServiceId;
+	}
+
+	public void setGameServiceId(UUID gameServiceId) {
+		this.gameServiceId = gameServiceId;
+	}
+
+	public spiel getSpiel() {
+		return spiel;
+	}
+
+	public void setSpiel(spiel spiel) {
+		this.spiel = spiel;
 	}
 }

@@ -5,7 +5,7 @@ import java.util.UUID;
 public class Registrierung {
 	
 	private UUID registrierungId = UUID.randomUUID();
-	private GameMaster userId;
+	private UUID userId;
 	private boolean status;
 	
 	public Registrierung(UUID registrierungId, boolean status){
