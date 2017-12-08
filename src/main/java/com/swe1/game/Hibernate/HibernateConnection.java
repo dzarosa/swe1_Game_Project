@@ -14,7 +14,7 @@ public class HibernateConnection {
     
     static {
         try {            
-            sessionFactory = new AnnotationException().configure().buildSessionFactory();
+            sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
         } catch (Throwable exeption) {
             System.err.println("SessionFactory creation failed." + exeption);
             throw new ExceptionInInitializerError(exeption);
